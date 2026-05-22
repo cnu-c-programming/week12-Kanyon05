@@ -16,6 +16,7 @@ int main(int argc, const char* argv[]) {
         count++;
     }
     
+    count--;
     int max = 0;
     float avg = 0;
 
