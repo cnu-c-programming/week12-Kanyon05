@@ -6,13 +6,19 @@ int main(int argc, const char *argv[]) {
     if (fp == NULL) return 0;
 
     int sum = 0;
-    int num;
-    while (fscanf(fp, "%d", &num) == 1) {
-        sum += num;
+    
+    while (!feof(fp)) {
+        int num;
+        char line[100];
+        if (fgets(line, sizeof(line), fp) != NULL) {
+            if (sscanf(line, "%d", &num) == 1) {
+                sum += num;
+            } else {
+                fprintf(stderr, "invalid input %s", line);
+            }
+        }
     }
-    if (ferror(fp)) {
-        fprintf(stderr, "invalid input\n");
-    }
+    
 
     printf("sum: %d\n", sum);
     fclose(fp);
