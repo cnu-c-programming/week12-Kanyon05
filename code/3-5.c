@@ -11,7 +11,7 @@ int main(int argc, const char *argv[]) {
         sum += num;
     }
     if (ferror(fp)) {
-        fprintf("invalid input", stderr, "\n");
+        fprintf(stderr, "invalid input\n");
     }
 
     printf("sum: %d\n", sum);
